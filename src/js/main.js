@@ -1,11 +1,18 @@
+/**
+ * Let require.js know where our libraries live
+ */
 require.config({
   paths: {
     jquery:     'libs/jquery-min',
     underscore: 'libs/underscore-min',
-    backbone:   'libs/backbone-min'
+    backbone:   'libs/backbone-min',
+    piewpiew:   'libs/piewpiew-backbone' 
   }
 });
 
-require(['application'], function(application) {
-  console.log("application is now ready");
+/**
+ * Load the main application module and kick things off
+ */
+require(['application'], function(Application) {
+  Application.run();
 });
