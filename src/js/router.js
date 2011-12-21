@@ -1,5 +1,5 @@
 define(['backbone'], function(Backbone) {
-  return new Backbone.Router({
+  return Backbone.Router.extend({
     routes: {
       'project/:id'       : 'project',
       'projects/:filter'  : 'projects',

@@ -13,6 +13,8 @@ require.config({
 /**
  * Load the main application module and kick things off
  */
-require(['application'], function(Application) {
-  Application.run();
+require(['application', 'config'], function(Application, Config) {
+  new Application({
+    config: Config || {}
+  }).run();
 });

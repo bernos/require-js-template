@@ -1,25 +1,30 @@
-define(['piewpiew'], function(piewpiew) {
+define(['piewpiew', "underscore", 'collections/projects'], function(piewpiew, _, Projects) {
 
-	return new piewpiew.ApplicationController({   
+  return piewpiew.ApplicationController.extend({
+    indexAction: function() {
+      console.log("show featured projects");
 
-		indexAction: function() {
-			console.log("indexAction");
-		},
+      this.featuredProjectsView.render();
 
-		helpAction: function() {
-			console.log("helpAction");
-		},
-
-		searchAction: function(q) {
-			console.log("searchAction", q);
-		},
+      console.log(this.featuredProjectsView.el)
+    },
 
     projectAction: function(id) {
-      console.log("show project", id);
+      var project = Projects.get(id);
+
+      console.log(project);
     },
 
     projectsAction: function(filter) {
-      console.log("show projects", filter);
-    }
-	});
+      if (filter == "all") {
+        var projects = Projects.models;
+      } else {
+        var projects = Projects.filter(function(project){
+          return (_(project.get('categories') || []).indexOf(filter) > -1);
+        });
+      }
+
+      console.log("show projects", filter, projects);
+    }  
+  });
 });

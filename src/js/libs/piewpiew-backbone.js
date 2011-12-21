@@ -73,14 +73,6 @@ define(['underscore', 'backbone'], function(_, Backbone) {
       // Ensure we have a valid options object
       options = options || {};
 
-      // Set a default router if none is provided
-      options.router = options.router || new Backbone.Router({
-        '*splat' : 'default'
-      });
-
-      // Set a default controller if none is provided
-      options.controller = options.controller || new piewpiew.ApplicationController();
-
       _.extend(this, options);
 
       this.initializeModel();
@@ -88,18 +80,20 @@ define(['underscore', 'backbone'], function(_, Backbone) {
       this.initializeController();      
     },
 
-    initializeModel: function(options) {
+    initializeModel: function() {
       
     },
 
-    initializeView: function(options) {
+    initializeView: function() {
       
     },
 
-    initializeController: function(options) {
-      if (this.controller && this.router) {
-        this.controller.setRouter(this.router);
-      }
+    initializeController: function() {
+      this.controller = new piewpiew.ApplicationController({
+        router: new Backbone.Router({
+          '*splat' : 'default'
+        })
+      });
     },
 
     run: function() {
@@ -116,8 +110,13 @@ define(['underscore', 'backbone'], function(_, Backbone) {
 
     initialize: function(options) {
       options = options || {};
+      options.config = options.config || {};
 
       _.extend(this, options); 
+
+      if (options.router) {
+        this.setRouter(options.router);
+      }
     },
 
     /**
@@ -142,9 +141,10 @@ define(['underscore', 'backbone'], function(_, Backbone) {
       if (typeof this[action + 'Action'] == 'function') {
         this[action + 'Action'].apply(this, parts);
       } else {
-        // Controller does not have an action for this route. At this point
-        // we might choose to throw an exception to mimic a 404 error etc...
-        console.error('Action "' + action + '"" not implemented.');
+        // Controller does not have an action for this route. 
+        if (this.config.enableExceptions) {
+          throw 'Action "' + action + '"" not implemented.';
+        }
       }
     },
 
@@ -160,6 +160,8 @@ define(['underscore', 'backbone'], function(_, Backbone) {
     setRouter: function(router) {
       var controller = this;
 
+      this.router = router;
+
       router.bind("all", function() {
         var args  = Array.prototype.slice.apply(arguments);
         var route = args.shift().split(':')[1];
@@ -167,9 +169,10 @@ define(['underscore', 'backbone'], function(_, Backbone) {
         if (typeof controller[route + 'Action'] == 'function') {
           controller[route + 'Action'].apply(controller, args); 
         } else {
-          // Controller does not have an action for this route. At this point
-          // we might choose to throw an exception to mimic a 404 error etc...
-          console.error('Action for route "' + route + '"" not implemented.');
+          // Controller does not have an action for this route.
+          if (controller.config.enableExceptions) {
+            throw 'Action for route "' + route + '"" not implemented.';
+          }
         }   
       });
     }
