@@ -1,0 +1,12 @@
+<div class="current-item">
+  
+</div>
+<div class="sidebar">
+  <h1><%= title %></h1>
+  <p><%= longDescription %></p>
+  <ul class="item-list">
+  <% _(items).each(function(item) { %> 
+    <li><a href="/#/project/<%= id %>/<%= item.id %>" rel="<%= item.id %>"><%= item.title %></a></li>
+  <% }); %>
+  </ul>
+</div>

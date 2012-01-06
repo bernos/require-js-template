@@ -1,0 +1,13 @@
+<ul class="featured-projects">
+<% _.each(projects, function(project) { %> 
+  <li>
+    <a href="/#/project/<%= project.id %>">
+      <img src="<%= project.heroImage %>"></img>
+      <div class="info">
+        <h2><%= project.title %></h2>
+        <p class="short-description"><%= project.shortDescription %></p>
+      </div>
+    </a>
+  </li>
+<% }); %>
+</ul>

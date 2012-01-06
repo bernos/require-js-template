@@ -1,0 +1,6 @@
+TODOS
+=====
+
+* /project/project-id route is not working for direct hits, as it current assumes that 
+  projects have been preloaded. Might be best to flesh out the ApplicationModel to include
+  a selectedProject attribute

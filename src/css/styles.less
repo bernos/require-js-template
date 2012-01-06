@@ -1,0 +1,183 @@
+@navbar-height: 100px;
+@navbar-item-width: 90px;
+@navbar-item-height: 71px;
+@navbar-item-spacing: 50px;
+@navbar-num-items: 3;
+@color-primary: #FFFFFF;
+
+
+html {
+  height: 100%;
+}
+
+body {
+  margin: 0; 
+  height:100%;
+  position:relative;
+  font-family: Georgia, serif;
+  color:@color-primary;
+  font-size:62.5%;
+}
+
+p {
+  font-size: 1.2em;
+}
+
+a {
+  color:@color-primary;
+  text-decoration: none;
+}
+
+ul.horizontal {
+  overflow:hidden;
+  margin: 0;
+  padding: 0;
+
+  li {
+    float: left;
+    list-style: none;
+    margin: 0 5px;
+  }
+
+  li.first {
+    margin-left:0;
+  }
+
+  li.last {
+    margin-right:0;
+  }
+}
+
+ul.grid {
+  overflow:hidden;
+  margin: 0;
+  padding: 0;
+
+  li {
+    float: left;
+    list-style: none;
+    margin-right: 10px;
+  }
+}
+
+#content {
+  background:-webkit-radial-gradient(50% 50%, transparent, rgba(0, 0, 0, 0.4)), url('../img/bg-main.png');
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  bottom: @navbar-height;
+}
+
+#navbar {
+  background:url('../img/bg-bottom.png');
+  position:absolute;
+  bottom:0;
+  left: 0;
+  right: 0;
+  height: @navbar-height;
+  overflow:hidden;
+
+  .menu {
+    margin: ((@navbar-height - @navbar-item-height) / 2) auto;
+    width: (@navbar-num-items * @navbar-item-width) + ((@navbar-num-items - 1) * @navbar-item-spacing);
+
+    li {
+      margin: 0 (@navbar-item-spacing / 2);
+    }
+
+    li.first {
+      margin-left: 0;
+    }
+
+    li.last {
+      margin-right: 0;
+    }
+
+    a {
+      height: @navbar-item-height;
+      width: @navbar-item-width;
+      background:url('../img/nav.png');
+      display:block;
+      text-indent:-999em;
+      overflow:hidden;
+    }
+
+    .projects a {
+      background-position: -100px 0;
+    }
+
+    .contact a {
+      background-position: -200px 0;
+    }
+  }
+}
+
+#loader {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -@navbar-height 0 0 -40px;
+}
+
+#FeaturedProjectsView {
+  ul.featured-projects {
+    margin: 0;
+    padding: 0;
+
+    li {
+      list-style: none;
+      position: relative;
+
+      a {
+        display:block;  
+      }
+
+      img {
+        display:block;  
+      }
+
+      .info {
+        position: absolute;
+        left:0;
+        top:0;
+        text-align: center;
+
+        h2 {
+          text-transform: uppercase;
+          font-weight:400;
+        }
+
+        .short-description {
+          font-style:italic;
+        }
+      }
+    }
+      
+  }
+  
+}
+
+#ProjectView {
+  @sidebar-width: 128px;
+
+  .sidebar {
+    width: @sidebar-width;
+    position: absolute;
+    right:0px;
+    top:0px;
+  }
+}
+
+#ProjectListView {
+  overflow: hidden;
+
+  ul.project-list {
+    li {
+      width: 320px;
+      height: 240px;
+      margin: 20px;
+      background:grey;
+    }
+  }
+}

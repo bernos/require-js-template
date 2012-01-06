@@ -5,14 +5,36 @@
     "shortDescription": "Short description of example one",
     "longDescription": "Longer description of example one goes here.",
     "categories": ["web", "mobile"],
-    "featured": true
+    "featured": true,
+    "heroImage": "img/P8121852.JPG",
+    "items": [
+      {
+        "id": "item-one",
+        "title": "Item one"
+      },
+      {
+        "id": "item-two",
+        "title": "Item two"
+      }
+    ]  
   },
   { 
     "id": "project-two",
     "title": "Example two",
     "shortDescription": "Short description of example two",
     "longDescription": "Longer description of example two goes here.",
-    "categories": ["web"]
+    "categories": ["web"],
+    "heroImage": "img/P8121852.JPG",
+    "items": [
+      {
+        "id": "item-one",
+        "title": "Item one"
+      },
+      {
+        "id": "item-two",
+        "title": "Item two"
+      }
+    ]  
   },
   {
     "id": "project-three",
@@ -20,6 +42,55 @@
     "shortDescription": "Short description of example three",
     "longDescription": "Longer description of example three goes here.",
     "categories": ["mobile"],
-    "featured": true
+    "featured": true,
+    "heroImage": "img/P8121852.JPG",
+    "items": [
+      {
+        "id": "item-one",
+        "title": "Item one"
+      },
+      {
+        "id": "item-two",
+        "title": "Item two"
+      }
+    ]  
+  },
+  {
+    "id": "project-four",
+    "title": "Example four",
+    "shortDescription": "Short description of example three",
+    "longDescription": "Longer description of example three goes here.",
+    "categories": ["mobile"],
+    "featured": true,
+    "heroImage": "img/P8121852.JPG",
+    "items": [
+      {
+        "id": "item-one",
+        "title": "Item one"
+      },
+      {
+        "id": "item-two",
+        "title": "Item two"
+      }
+    ]  
+  },
+  {
+    "id": "project-five",
+    "title": "Example five",
+    "shortDescription": "Short description of example three",
+    "longDescription": "Longer description of example three goes here.",
+    "categories": ["mobile"],
+    "featured": true,
+    "heroImage": "img/P8121852.JPG",
+    "items": [
+      {
+        "id": "item-one",
+        "title": "Item one"
+      },
+      {
+        "id": "item-two",
+        "title": "Item two"
+      }
+    ]  
   }
 ]
