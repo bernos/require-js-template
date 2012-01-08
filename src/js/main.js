@@ -6,7 +6,7 @@ require.config({
     'jquery':     'libs/jquery/jquery-1.7.1.min',
     'underscore': 'libs/underscore/underscore-1.2.4.min',
     'backbone':   'libs/backbone/backbone-0.5.3.min',
-    'piewpiew':   'libs/piewpiew/piewpiew-backbone',
+    'piewpiew':   'libs/piewpiew/piewpiew-backbone-0.0.1.min',
     'text':       'libs/requirejs/text',
     'order':      'libs/requirejs/order',
     'i18n':       'libs/requirejs/i18n',

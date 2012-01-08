@@ -8,7 +8,7 @@ define([
   'backbone', 
   'models/collections/Projects', 
   'views/ApplicationView', 
-  'controllers/Commands'
+  'controllers/commands'
 ], 
 
 function(piewpiew, Backbone, Projects, ApplicationView, commands) {
@@ -73,9 +73,9 @@ function(piewpiew, Backbone, Projects, ApplicationView, commands) {
   /**
    * Retrieve the singleton instance of the ApplicationFacade
    */
-  ApplicationFacade.getInstance = function(key) {
+  ApplicationFacade.getInstance = function(key, options) {
     if (!piewpiew.Facade.instanceMap[key]) {
-      return new ApplicationFacade(key);
+      return new ApplicationFacade(key, options);
     }
     return piewpiew.Facade.instanceMap[key];
   }
