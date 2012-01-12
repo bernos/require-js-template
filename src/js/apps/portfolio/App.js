@@ -10,24 +10,23 @@ define([
 ], 
 
 function(piewpiew, Backbone, Projects, ApplicationView, commands) {
-  var PortfolioApp = piewpiew.Facade.extend({
+  var PortfolioApp = piewpiew.App.extend({
     
-    EVENT_STARTUP:                'facade:startup',
-    EVENT_STARTUP_COMPLETE:       'facade:startup_complete',
+    EVENT_STARTUP:                'PortfolioApp:startup',
+    EVENT_STARTUP_COMPLETE:       'PortfolioApp:startup_complete',
 
-    /**
-     * Initialize the router
-     */
-    initializeRouter: function() {
-      this.registerRouter('default', new Backbone.Router({
-        routes: {
-          ''                  : 'showFeaturedProjects',
-          'project/:id'       : 'showProject',
-          'project/:id/:item' : 'showProject',
-          'projects/:filter'  : 'showProjects',
-          '*splat'            : 'default'
-        }
-      }));
+    defaults: {
+
+      // Default routes for our App. These routes are relative to the
+      // App.baseUrl property if one is set, otherwise they are relative to 
+      // the docroot
+      routes: {
+        ''                  : 'showFeaturedProjects',
+        'project/:id'       : 'showProject',
+        'project/:id/:item' : 'showProject',
+        'projects/:filter'  : 'showProjects',
+        '*splat'            : 'default'
+      }
     },
 
     /**
@@ -69,13 +68,13 @@ function(piewpiew, Backbone, Projects, ApplicationView, commands) {
   });  
 
   /**
-   * Retrieve the singleton instance of the ApplicationFacade
+   * Retrieve the singleton instance of the App
    */
   PortfolioApp.getInstance = function(key, options) {
-    if (!piewpiew.Facade.instanceMap[key]) {
+    if (!piewpiew.App.instanceMap[key]) {
       return new PortfolioApp(key, options);
     }
-    return piewpiew.Facade.instanceMap[key];
+    return piewpiew.App.instanceMap[key];
   }
 
   return PortfolioApp;

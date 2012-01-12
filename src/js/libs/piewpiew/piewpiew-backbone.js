@@ -7,7 +7,7 @@ define(['underscore', 'backbone', 'piewpiew'], function(_, Backbone, piewpiew) {
    *  piewpiew.View base class
    *  --------------------------------------------------------------------------
    *  Adds external template support to the basic Backbone.View class, as well 
-   *  as default implementations for rendering and and facade registration.
+   *  as default implementations for rendering and and app registration.
    */
   piewpiew.View = Backbone.View.extend({
 
@@ -60,15 +60,15 @@ define(['underscore', 'backbone', 'piewpiew'], function(_, Backbone, piewpiew) {
     },
 
     /**
-     * This method is called when the view is registered with the Facade. It
+     * This method is called when the view is registered with the App. It
      * is often a better idea to put any view initialization code in onRegister(),
-     * as opposed to initialize() as the view will have access to the Facade via 
-     * this.facade during onRegister().
+     * as opposed to initialize() as the view will have access to the App via 
+     * this.app during onRegister().
      *
-     * @param {piewpiew.Facade}
-     *  the facade that the view is being registered with
+     * @param {piewpiew.App}
+     *  the app that the view is being registered with
      */
-    onRegister: function(facade) {
+    onRegister: function(app) {
       // noop
       return this;
     }
@@ -90,28 +90,28 @@ define(['underscore', 'backbone', 'piewpiew'], function(_, Backbone, piewpiew) {
   }
 
   /**
-   *  piewpiew.Facade
+   *  piewpiew.App
    *  -------------------------------------------------------------------------
-   *  The Facade class represents the 'core' of our app or app component. It
+   *  The App class represents the 'core' of our app or app component. It
    *  provides a consistent point of access to views and models in our app
    *  via the regsiterView, registerModel, getView, getModel methods.
    */    
-  piewpiew.Facade = Backbone.View.extend({
+  piewpiew.App = Backbone.View.extend({
 
     /**
-     * Initializes the Facade instance.
+     * Initializes the App instance.
      *
      * @param {String} key
-     *  Unique multiton key for the facade
+     *  Unique multiton key for the app
      * @param {Object} options
-     *  Default options for the facade
+     *  Default options for the app
      */
     initialize: function(key, options) {
-      if (piewpiew.Facade.instanceMap[key]) {
-        throw "Facade instance with key '" + key + "' already exists."
+      if (piewpiew.App.instanceMap[key]) {
+        throw "App instance with key '" + key + "' already exists."
       }
 
-      piewpiew.Facade.instanceMap[key] = this;
+      piewpiew.App.instanceMap[key] = this;
 
       options = options || {};
 
@@ -139,7 +139,7 @@ define(['underscore', 'backbone', 'piewpiew'], function(_, Backbone, piewpiew) {
     },
 
     /**
-     * Initialize the facade with options passed to the constructor
+     * Initialize the app with options passed to the constructor
      */
     initializeOptions: function(options) {
       _.extend(this, options);
@@ -148,15 +148,26 @@ define(['underscore', 'backbone', 'piewpiew'], function(_, Backbone, piewpiew) {
     /**
      * Register your router(s) here.
      */
-    intitializeRouter: function() { return this; },
+    initializeRouter: function() { 
+      if (this.routes) {
+        var routes = this.normalizeRoutes(this.routes);
+
+        this.registerRouter('default', new Backbone.Router({
+          routes: routes
+        }));
+
+      }
+
+      return this; 
+    },
 
     /**
-     * Register your models with the facade here.
+     * Register your models with the app here.
      */
     initializeModel: function() { return this; },
 
     /**
-     * Register your views with the facade here.
+     * Register your views with the app here.
      */
     initializeView: function() { return this; },
 
@@ -166,7 +177,7 @@ define(['underscore', 'backbone', 'piewpiew'], function(_, Backbone, piewpiew) {
     initializeController: function() { return this; },
 
     /**
-     * Registers a router with the facade
+     * Registers a router with the app
      *
      * @param {String} name
      *  Name of the router
@@ -175,6 +186,22 @@ define(['underscore', 'backbone', 'piewpiew'], function(_, Backbone, piewpiew) {
      */
     registerRouter: function(name, router) {
       this._routerMap[name] = router;
+    },
+
+    normalizeRoutes: function(routes) {
+      if (this.baseUrl) {
+        normalizedRoutes = {};
+        
+        for (var pattern in routes) {
+          var p = pattern.length ? this.baseUrl + '/' + pattern : this.baseUrl;
+
+          normalizedRoutes[p] = routes[pattern];
+        }  
+
+        return normalizedRoutes;
+      }
+
+      return routes;
     },
 
     /**
@@ -190,18 +217,18 @@ define(['underscore', 'backbone', 'piewpiew'], function(_, Backbone, piewpiew) {
     },
 
     /**
-     * Registers a model with the Facade. The model's facade property will be set
-     * to reference this facade. If the model has an onRegister() method it will
+     * Registers a model with the App. The model's app property will be set
+     * to reference this app. If the model has an onRegister() method it will
      * be called
      *
      * @param {String} name
      *  A name to register the model under
      * @param {Backbone.Model} model
-     * @return {Facade}
+     * @return {App}
      */
     registerModel: function(name, model) {
       this._modelMap[name] = model;
-      model.facade = this;
+      model.app = this;
 
       if (typeof model.onRegister == 'function') {
         model.onRegister(this);
@@ -211,7 +238,7 @@ define(['underscore', 'backbone', 'piewpiew'], function(_, Backbone, piewpiew) {
     },
 
     /**
-     * Retrieve a model from the facade.
+     * Retrieve a model from the app.
      *
      * @param {String} name
      *  The name of the model to retrieve
@@ -222,18 +249,18 @@ define(['underscore', 'backbone', 'piewpiew'], function(_, Backbone, piewpiew) {
     },
 
     /**
-     * Registers a view with the Facade. The view's facade property will be set
-     * to reference this facade. If the view has an onRegister() method it will
+     * Registers a view with the App. The view's app property will be set
+     * to reference this app. If the view has an onRegister() method it will
      * be called
      *
      * @param {String} name
      *  A name to register the view under
      * @param {Backbone.View} view
-     * @return {Facade}
+     * @return {App}
      */
     registerView: function(name, view) {
       this._viewMap[name] = view;
-      view.facade = this;
+      view.app = this;
 
       if (typeof view.onRegister == 'function') {
         view.onRegister(this);
@@ -243,7 +270,7 @@ define(['underscore', 'backbone', 'piewpiew'], function(_, Backbone, piewpiew) {
     },
 
     /**
-     * Retrieve a view from the facade
+     * Retrieve a view from the app
      *
      * @param {String} name
      *  Name of the view to retrieve
@@ -254,7 +281,7 @@ define(['underscore', 'backbone', 'piewpiew'], function(_, Backbone, piewpiew) {
     },
 
     /**
-     * Binds a command class to an event source and event name. The Facade
+     * Binds a command class to an event source and event name. The App
      * will create an instance of the command class, and call it's execute()
      * method whenever the eventSource triggers the event. The command's
      * execute() method will receive the arguments provided by the event
@@ -266,13 +293,13 @@ define(['underscore', 'backbone', 'piewpiew'], function(_, Backbone, piewpiew) {
      *  The event source that the command will be bound to
      * @param {String} eventName
      *  The name of the event the command will be bound to
-     * @return {Facade}
+     * @return {App}
      */
     registerCommand: function(commandClass, eventSource, eventName) {
-      var facade = this;
+      var app = this;
 
       eventSource.bind(eventName, function() {
-        var command = new commandClass(facade);
+        var command = new commandClass(app);
         command.execute.apply(command, arguments)  
       });
 
@@ -280,7 +307,7 @@ define(['underscore', 'backbone', 'piewpiew'], function(_, Backbone, piewpiew) {
     }
   });
 
-  piewpiew.Facade.instanceMap = {};
+  piewpiew.App.instanceMap = {};
 
   /**
    *  piewpiew.SimpleCommand base class
@@ -289,8 +316,8 @@ define(['underscore', 'backbone', 'piewpiew'], function(_, Backbone, piewpiew) {
    */
 
   piewpiew.SimpleCommand = piewpiew.Class({
-    initialize: function(facade) {
-      this.facade = facade;
+    initialize: function(app) {
+      this.app = app;
     },
 
     execute: function() { return this; }
@@ -304,8 +331,8 @@ define(['underscore', 'backbone', 'piewpiew'], function(_, Backbone, piewpiew) {
    */
   
   piewpiew.MacroCommand = piewpiew.Class({
-    initialize: function(facade) {
-      this.facade = facade;
+    initialize: function(app) {
+      this.app = app;
       this.subCommands = [];
       this.initializeMacroCommand();
     },
@@ -334,7 +361,7 @@ define(['underscore', 'backbone', 'piewpiew'], function(_, Backbone, piewpiew) {
     execute: function() {
       while(this.subCommands.length > 0) {
         var commandClass = this.subCommands.shift();
-        var command      = new commandClass(this.facade);
+        var command      = new commandClass(this.app);
 
         command.execute.apply(command, arguments);
       }

@@ -7,13 +7,12 @@ define(['piewpiew-backbone', 'backbone'], function(piewpiew, Backbone) {
     StartupCommand: piewpiew.SimpleCommand.extend({
       execute: function() {
         console.log("StartupCommand");
-        var facade   = this.facade;
-        var projects = facade.getModel('projects');
+        var app   = this.app;
+        var projects = app.getModel('projects');
 
         projects.fetch({
           success: function(collection, response) {
-            //facade.getView('applicationView').hideLoader();
-            facade.trigger(facade.EVENT_STARTUP_COMPLETE);
+            app.trigger(app.EVENT_STARTUP_COMPLETE);
             Backbone.history.start();
           },
           error: function(collection, response) {
@@ -34,7 +33,7 @@ define(['piewpiew-backbone', 'backbone'], function(piewpiew, Backbone) {
     ShowFeaturedProjectsCommand: piewpiew.SimpleCommand.extend({
       execute: function() {
         console.log("ShowFeaturedProjectsCommand", arguments);
-        var view = this.facade.getView('applicationView');
+        var view = this.app.getView('applicationView');
         view.showView(view.featuredProjectsView);
       }
     }),
@@ -42,7 +41,7 @@ define(['piewpiew-backbone', 'backbone'], function(piewpiew, Backbone) {
     ShowFilteredProjectsCommand: piewpiew.SimpleCommand.extend({
       execute: function(filter) {
         console.log("ShowFilteredProjectsCommand", arguments);
-        var view = this.facade.getView('applicationView');
+        var view = this.app.getView('applicationView');
         
         view.projectListView.setFilter(filter);
         view.showView(view.projectListView);
@@ -54,8 +53,8 @@ define(['piewpiew-backbone', 'backbone'], function(piewpiew, Backbone) {
         console.log("ShowProjectCommand", arguments);
 
         // get project from the model..
-        var view     = this.facade.getView('applicationView');
-        var projects = this.facade.getModel('projects');
+        var view     = this.app.getView('applicationView');
+        var projects = this.app.getModel('projects');
         var project  = projects.get(projectId);   
         var item     = project.getItemById(itemId);
 

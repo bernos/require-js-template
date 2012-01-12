@@ -1,11 +1,11 @@
 define(['underscore', 'backbone', 'piewpiew-backbone', './FeaturedProjectsView', './ProjectView', './ProjectListView'], function(_, Backbone, piewpiew, FeaturedProjectsView, ProjectView, ProjectListView, template) {
   return piewpiew.View.extend({
 
-    onRegister: function(facade) {
-      var projects = this.facade.getModel('projects');
+    onRegister: function(app) {
+      var projects = this.app.getModel('projects');
       var view     = this;
 
-      this.facade.bind(this.facade.EVENT_STARTUP_COMPLETE, function() {
+      this.app.bind(this.app.EVENT_STARTUP_COMPLETE, function() {
         view.hideLoader();  
       });
       
