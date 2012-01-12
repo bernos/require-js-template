@@ -10,7 +10,7 @@ define([
 ], 
 
 function(piewpiew, Backbone, Projects, ApplicationView, commands) {
-  var ApplicationFacade = piewpiew.Facade.extend({
+  var PortfolioApp = piewpiew.Facade.extend({
     
     EVENT_STARTUP:                'facade:startup',
     EVENT_STARTUP_COMPLETE:       'facade:startup_complete',
@@ -71,14 +71,14 @@ function(piewpiew, Backbone, Projects, ApplicationView, commands) {
   /**
    * Retrieve the singleton instance of the ApplicationFacade
    */
-  ApplicationFacade.getInstance = function(key, options) {
+  PortfolioApp.getInstance = function(key, options) {
     if (!piewpiew.Facade.instanceMap[key]) {
-      return new ApplicationFacade(key, options);
+      return new PortfolioApp(key, options);
     }
     return piewpiew.Facade.instanceMap[key];
   }
 
-  return ApplicationFacade;
+  return PortfolioApp;
 });
 
 

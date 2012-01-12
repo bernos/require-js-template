@@ -21,8 +21,8 @@ require.config({
 /**
  * Load the main application module and kick things off
  */
-require(['apps/portfolio/ApplicationFacade'], function(Portfolio) {
-  Portfolio.getInstance('PortfolioApp', {
+require(['apps/portfolio/App'], function(PortfolioApp) {
+  PortfolioApp.getInstance('PortfolioApp', {
     el: document.body
   }).startup();
 });
