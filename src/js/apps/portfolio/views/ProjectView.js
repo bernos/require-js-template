@@ -1,4 +1,4 @@
-define(['piewpiew', 'text!templates/ProjectView.html'], function(piewpiew, template) {
+define(['piewpiew-backbone', 'text!../templates/ProjectView.html'], function(piewpiew, template) {
   return piewpiew.View.extend({
 
     template: template,

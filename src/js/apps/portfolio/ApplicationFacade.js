@@ -1,14 +1,12 @@
 /**
- * This is our main application module. It defines our custom application
- * class. Generally speaking our application class will extend 
- * piewpiew.Application by adding some methods specific to our app.
+ * This is our Porfolio App.
  */
 define([
-  'piewpiew', 
+  'piewpiew-backbone', 
   'backbone', 
-  'models/collections/Projects', 
-  'views/ApplicationView', 
-  'controllers/commands'
+  './models/collections/Projects', 
+  './views/ApplicationView', 
+  './controllers/commands'
 ], 
 
 function(piewpiew, Backbone, Projects, ApplicationView, commands) {
@@ -44,7 +42,7 @@ function(piewpiew, Backbone, Projects, ApplicationView, commands) {
      */
     initializeView: function() {
       this.registerView('applicationView', new ApplicationView({
-        el:document.body
+        el:this.el
       }));
     },
 

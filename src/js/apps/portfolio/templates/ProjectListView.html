@@ -1,0 +1,20 @@
+<ul class="category-list horizontal">
+<% _.each(categories, function(category) { %> 
+  <li><a href="/#/projects/<%= category %>"><%= category %></a></li>
+<% }); %>
+</ul>
+<ul class="grid project-list">
+<% _.each(projects, function(project) { %> 
+  <li class="project">
+    <a href="/#/project/<%= project.id %>">
+      <div class="image">
+        <img src="/img/P8121794.JPG" width="320" height="240">
+      </div>
+      <div class="caption">
+        <div class="title"><%= project.title %></div>
+        <div class="date">3/6/2011</div>
+      </div>      
+    </a>
+  </li>
+<% }); %>
+</ul>

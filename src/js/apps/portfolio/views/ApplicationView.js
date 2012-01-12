@@ -1,4 +1,4 @@
-define(['underscore', 'backbone', 'piewpiew', 'views/FeaturedProjectsView', 'views/ProjectView', 'views/ProjectListView'], function(_, Backbone, piewpiew, FeaturedProjectsView, ProjectView, ProjectListView, template) {
+define(['underscore', 'backbone', 'piewpiew-backbone', './FeaturedProjectsView', './ProjectView', './ProjectListView'], function(_, Backbone, piewpiew, FeaturedProjectsView, ProjectView, ProjectListView, template) {
   return piewpiew.View.extend({
 
     onRegister: function(facade) {

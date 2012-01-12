@@ -1,4 +1,4 @@
-define(['underscore', 'backbone', 'models/Project'], function(_, Backbone, Project) {
+define(['underscore', 'backbone', '../Project'], function(_, Backbone, Project) {
   return Backbone.Collection.extend({
     url: '/data/projects.json',
     model: Project,

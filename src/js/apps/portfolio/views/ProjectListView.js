@@ -1,4 +1,4 @@
-define(['piewpiew', 'underscore', 'text!templates/ProjectListView.html'], function(piewpiew, _, template){
+define(['piewpiew-backbone', 'underscore', 'text!../templates/ProjectListView.html'], function(piewpiew, _, template){
 
   return piewpiew.View.extend({
 

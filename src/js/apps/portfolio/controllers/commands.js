@@ -1,4 +1,4 @@
-define(['piewpiew', 'backbone'], function(piewpiew, Backbone) {
+define(['piewpiew-backbone', 'backbone'], function(piewpiew, Backbone) {
   return {
 
     /**
