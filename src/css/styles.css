@@ -19,4 +19,6 @@ ul.grid{overflow:hidden;margin:0;padding:0;}ul.grid li{float:left;list-style:non
 #FeaturedProjectsView ul.featured-projects li .info{position:absolute;left:0;top:0;text-align:center;}#FeaturedProjectsView ul.featured-projects li .info h2{text-transform:uppercase;font-weight:400;}
 #FeaturedProjectsView ul.featured-projects li .info .short-description{font-style:italic;}
 #ProjectView .sidebar{width:128px;position:absolute;right:0px;top:0px;}
-#ProjectListView{overflow:hidden;}#ProjectListView ul.project-list li{width:320px;height:240px;margin:20px;background:grey;}
+#ProjectListView{overflow:hidden;}#ProjectListView ul.project-list li{margin:20px;}#ProjectListView ul.project-list li .image{padding:5px;background:#EEE;border:1px solid #FFFFFF;-moz-box-shadow:0 0 15px #000;-webkit-box-shadow:0 0 15px #000;box-shadow:0 0 15px #000;}#ProjectListView ul.project-list li .image img:{display:block;}
+#ProjectListView ul.project-list li .caption{text-align:center;text-shadow:0 0 10px #000;}#ProjectListView ul.project-list li .caption .title{font-size:1.6em;margin:0.5em 0 0.2em 0;}
+#ProjectListView ul.project-list li .caption .date{font-size:1.2em;}
