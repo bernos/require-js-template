@@ -18,7 +18,7 @@ uglifyjs -nc $IN >> $OUT
 #-----------------------------------------------------------------------------
 MAJOR=0
 MINOR=0
-POINT=1
+POINT=2
 IN=src/js/libs/piewpiew/piewpiew-backbone.js
 OUT=src/js/libs/piewpiew/piewpiew-backbone-$MAJOR.$MINOR.$POINT.min.js
 
