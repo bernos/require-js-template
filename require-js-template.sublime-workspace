@@ -7,6 +7,30 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "src/js/libs/piewpiew/piewpiew-backbone.js",
+			"settings":
+			{
+				"buffer_size": 10607,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/js/apps/portfolio/App.js",
+			"settings":
+			{
+				"buffer_size": 2327,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/js/main.js",
+			"settings":
+			{
+				"buffer_size": 829,
+				"line_ending": "Unix"
+			}
+		}
 	],
 	"build_system": "",
 	"command_palette":
@@ -56,6 +80,22 @@
 	},
 	"file_history":
 	[
+		"/Volumes/Users/mcmahonb/workspace/sandbox/require-js-template/src/js/main.js",
+		"/Volumes/Users/mcmahonb/workspace/sandbox/require-js-template/build.sh",
+		"/Volumes/Users/mcmahonb/workspace/sandbox/require-js-template/src/js/apps/portfolio/App.js",
+		"/Volumes/Users/mcmahonb/workspace/sandbox/require-js-template/app.build.js",
+		"/Volumes/Users/mcmahonb/workspace/sandbox/require-js-template/src/js/apps/portfolio/views/ApplicationView.js",
+		"/Volumes/Users/mcmahonb/workspace/sandbox/require-js-template/src/js/apps/portfolio/controllers/commands.js",
+		"/Volumes/Users/mcmahonb/workspace/sandbox/require-js-template/src/js/libs/piewpiew/piewpiew-backbone.js",
+		"/Volumes/Users/mcmahonb/workspace/sandbox/require-js-template/src/js/apps/portfolio/ApplicationFacade.js",
+		"/Volumes/Users/mcmahonb/workspace/sandbox/require-js-template/.gitignore",
+		"/Volumes/Users/mcmahonb/workspace/sandbox/require-js-template/src/js/apps/portfolio/models/ApplicationModel.js",
+		"/Volumes/Users/mcmahonb/workspace/sandbox/require-js-template/src/js/apps/portfolio/views/views.js",
+		"/Volumes/Users/mcmahonb/workspace/sandbox/require-js-template/src/js/apps/portfolio/models/collections/Projects.js",
+		"/Volumes/Users/mcmahonb/workspace/sandbox/require-js-template/src/js/apps/portfolio/views/FeaturedProjectsView.js",
+		"/Volumes/Users/mcmahonb/workspace/sandbox/require-js-template/src/js/apps/portfolio/views/ProjectListView.js",
+		"/Volumes/Users/mcmahonb/workspace/sandbox/require-js-template/src/js/apps/portfolio/views/ProjectView.js",
+		"/Volumes/Users/mcmahonb/workspace/sandbox/require-js-template/src/js/ApplicationFacade.js",
 		"/Volumes/Users/mcmahonb/workspace/projects/digitalbrilliance.com.au/index.htm",
 		"/Volumes/Users/mcmahonb/workspace/sandbox/require-js-template/src/js/templates/ProjectListView.html",
 		"/Volumes/Users/mcmahonb/workspace/sandbox/require-js-template/src/css/styles.less",
@@ -65,12 +105,8 @@
 		"/Volumes/Users/mcmahonb/workspace/sandbox/require-js-template/src/js/config.js",
 		"/Volumes/Users/mcmahonb/workspace/sandbox/require-js-template/src/js/libs/piewpiew/piewpiew-core.js",
 		"/Volumes/Users/mcmahonb/workspace/sandbox/require-js-template/src/js/controllers/commands.js",
-		"/Volumes/Users/mcmahonb/workspace/sandbox/require-js-template/src/js/main.js",
-		"/Volumes/Users/mcmahonb/workspace/sandbox/require-js-template/src/js/libs/piewpiew/piewpiew-backbone.js",
 		"/Volumes/Users/mcmahonb/workspace/sandbox/require-js-template/src/js/libs/piewpiew/piewpiew-core-0.0.1.min.js",
-		"/Volumes/Users/mcmahonb/workspace/sandbox/require-js-template/build.sh",
 		"/Volumes/Users/mcmahonb/workspace/sandbox/require-js-template/src/js/libs/piewpiew/piewpiew-backbone-0.0.1.min.js",
-		"/Volumes/Users/mcmahonb/workspace/sandbox/require-js-template/src/js/ApplicationFacade.js",
 		"/Volumes/Users/mcmahonb/workspace/sandbox/require-js-template/src/js/views/ProjectView.js",
 		"/Volumes/Users/mcmahonb/workspace/sandbox/require-js-template/src/js/views/ProjectListView.js",
 		"/Volumes/Users/mcmahonb/workspace/sandbox/require-js-template/src/js/views/FeaturedProjectsView.js",
@@ -171,23 +207,11 @@
 		"/Volumes/Users/mcmahonb/workspace/sandbox/st-jude/html-mockups/index.html",
 		"/Volumes/Users/mcmahonb/Documents/DFR/ADMIN/my-notes.md",
 		"/Volumes/Users/mcmahonb/Downloads/Toro_Report/Controllers/HomeController.cs",
-		"/Volumes/Users/mcmahonb/Downloads/Toro_Report/Global.asax.cs",
-		"/Volumes/Users/mcmahonb/Downloads/Toro_Report/Content/Site.css",
-		"/Volumes/Users/mcmahonb/Downloads/AFL/statsConfig.xml",
-		"/Volumes/Users/mcmahonb/workspace/sandbox/PiewPiew-Parallax/src/scripts/main.js",
-		"/Volumes/Users/mcmahonb/workspace/sandbox/PiewPiew-Parallax/src/scripts/parallax-engine.js",
-		"/Volumes/Users/mcmahonb/Downloads/jquery-require-sample/webapp/scripts/main.js",
-		"/Volumes/Users/mcmahonb/workspace/sandbox/PiewPiew-Parallax/src/scripts/jquery-1.6.4.min.js",
-		"/Volumes/Users/mcmahonb/workspace/sandbox/PiewPiew-Parallax/src/scripts/script.js",
-		"/Volumes/Users/mcmahonb/workspace/sandbox/PiewPiew-Parallax/src/css/styles.css",
-		"/Volumes/Users/mcmahonb/workspace/sandbox/PiewPiew-Parallax/src/index.html",
-		"/Volumes/Users/mcmahonb/Downloads/jquery-require-sample/webapp/app.html",
-		"/Volumes/Users/mcmahonb/workspace/sandbox/PiewPiew-Parallax/src/js/require.min.js",
-		"/Volumes/Users/mcmahonb/Downloads/jquery-require-sample/webapp/scripts/jquery.beta.js"
+		"/Volumes/Users/mcmahonb/Downloads/Toro_Report/Global.asax.cs"
 	],
 	"find":
 	{
-		"height": 33.0
+		"height": 34.0
 	},
 	"find_in_files":
 	{
@@ -201,6 +225,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"initializeRouter",
 			"m4v",
 			"mp4",
 			"m4v",
@@ -306,8 +331,93 @@
 	"groups":
 	[
 		{
+			"selected": 0,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "src/js/libs/piewpiew/piewpiew-backbone.js",
+					"settings":
+					{
+						"buffer_size": 10607,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4568,
+								4568
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1923.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "src/js/apps/portfolio/App.js",
+					"settings":
+					{
+						"buffer_size": 2327,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								871,
+								871
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "src/js/main.js",
+					"settings":
+					{
+						"buffer_size": 829,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								808,
+								808
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
 			]
 		}
 	],
@@ -376,6 +486,10 @@
 		"height": 500.0,
 		"selected_items":
 		[
+			[
+				"",
+				"/Volumes/Users/mcmahonb/workspace/sandbox/require-js-template/require-js-template.sublime-project"
+			]
 		],
 		"width": 380.0
 	},
@@ -383,6 +497,6 @@
 	"show_open_files": true,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 195.0,
+	"side_bar_width": 271.0,
 	"status_bar_visible": true
 }
