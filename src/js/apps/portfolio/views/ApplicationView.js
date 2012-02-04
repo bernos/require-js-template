@@ -1,9 +1,23 @@
-define(['underscore', 'backbone', 'piewpiew-backbone', './FeaturedProjectsView', './ProjectView', './ProjectListView'], function(_, Backbone, piewpiew, FeaturedProjectsView, ProjectView, ProjectListView, template) {
+define([
+  'underscore' 
+  ,'backbone' 
+  ,'piewpiew-backbone'
+  ,'./FeaturedProjectsView'
+  ,'./ProjectView'
+  ,'./ProjectListView'
+  ,'text!../templates/ApplicationView.html'
+], 
+
+function(_, Backbone, piewpiew, FeaturedProjectsView, ProjectView, ProjectListView, template) {
   return piewpiew.View.extend({
+    
+    template: template,
 
     onRegister: function(app) {
       var projects = this.app.getModel('projects');
       var view     = this;
+
+      this.render();
 
       this.app.bind(this.app.EVENT_STARTUP_COMPLETE, function() {
         view.hideLoader();  
@@ -11,16 +25,16 @@ define(['underscore', 'backbone', 'piewpiew-backbone', './FeaturedProjectsView',
       
       this.featuredProjectsView = new FeaturedProjectsView({
         model: projects,
-        el: $('#FeaturedProjectsView')
+        el: '#FeaturedProjectsView'
       });
         
       this.projectView = new ProjectView({
-        el: $('#ProjectView')
+        el: '#ProjectView'
       });
 
       this.projectListView = new ProjectListView({
         model: projects,
-        el: $('#ProjectListView')
+        el: '#ProjectListView'
       });
 
       this.children = [
